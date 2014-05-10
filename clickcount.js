@@ -12,7 +12,7 @@ if (Meteor.isClient) {
 			return true;
 		else
 			return false;
-	}
+	};
 	Template.click.events({
 		'click input': function () {
 			// template data, if any, is available in 'this'
@@ -23,6 +23,17 @@ if (Meteor.isClient) {
 			var id = Clicks.insert(newClick);
 			if (typeof console !== 'undefined')
 				console.log("Just inserted '" + id + "'into Clicks");
+		}
+	});
+	Template.shoutbox.shoutboxText = function(){
+		return Session.get("shoutboxText");
+	};
+	Template.shoutbox.events({
+		'click #submitShout': function(){
+			text = $("#shoutboxInput").val();
+			if(text){
+				Session.set("shoutboxText", text);
+			}
 		}
 	});
 }
