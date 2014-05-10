@@ -1,0 +1,22 @@
+<head>
+  <title>clickcount</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		{{> click}}
+	</div>
+</body>
+
+<template name="click">
+	<div id="title">
+		<h1>Click the Button Below!</h1>
+	</div>
+	<div id="clickBox">
+		<p>Click this button: <input type="button" value="Click"/></p>
+		<p>Total Clicks: {{nClicks}}</p>
+	</div>
+	{{#if isWinner}}
+		<p>YOUR CLICK IS DIVISIBLE BY SOMETHING COOL!</p>
+	{{/if}}
+</template>
